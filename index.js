@@ -1,9 +1,9 @@
 const {initailizeDatabase} = require("./db/db.connect")
 const express = require("express")
 const app = express()
-
+const cors = require("cors")
 const Movie = require("./models/movies.models")
-
+app.use(cors())
 app.use(express.json())
 
 initailizeDatabase();
@@ -310,7 +310,7 @@ async function updateMovie(movieId , dataToUpdate){
       }
    })
 
-const PORT = 3000
+const PORT = 3005
 app.listen(PORT , () => {
    console.log("Server running on port" , PORT)
 })
